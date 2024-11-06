@@ -13,19 +13,22 @@ async function main() {
     const collection = db.collection("User");
 
     // Read
-    const findResult=await collection.find({}).toArray();
+    const findResult = await collection.find({}).toArray();
     console.log("Found Documents =>", findResult);
 
     // Insert 
-    const data={
+    const data = {
         firstName: "Sparsh",
         LastName: "Yadav",
         city: "Meerut",
         country: "India"
     }
 
-    const insertResult=await collection.insertMany([data]);
+    const insertResult = await collection.insertMany([data]);
     console.log("Inerted Documents =>", insertResult);
+
+    const countResult = await collection.countDocuments({});
+    console.log("Count Documents =>", countResult);
 
     return "Done.";
 }
